@@ -5,7 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-//연습용
+
 namespace trpg
 {
     public class Character
@@ -37,15 +37,16 @@ namespace trpg
     internal class Class7
     {
         static Character player;
+        static Random rand = new Random();
 
         //아이템 이름
-        static List<string> itemNamesList = new List<string> { "낡은 로브", "낡은 지팡이", "낡은 완드", "운영자의 검" };
+        static List<string> itemNamesList = new List<string> { "낡은 로브", "낡은 지팡이", "낡은 완드", "운영자의 검", "운영자의 옷" };
 
         //아이템 타입
-        static List<int> itemTypesList = new List<int> { 1, 0, 0, 0 };
+        static List<int> itemTypesList = new List<int> { 1, 0, 0, 0, 1 };
 
         //아이템 스텟
-        static List<int> itemStatsList = new List<int> { 3, 5, 4, 9999 };
+        static List<int> itemStatsList = new List<int> { 3, 5, 4, 9999, 999 };
 
         //아이템 설명
         static List<string> itemDescriptionsList = new List<string>
@@ -53,14 +54,15 @@ namespace trpg
             "금방이라도 찢어질 것 같다.",
             "흔하게 볼 수 있는 지팡이다.",
             "지팡이보다 가볍다.",
-            "운영자의 검이다"
+            "운영자의 검이다",
+            "운영자의 옷이다"
         };
 
         //보유
-        static List<bool> itemOwndList = new List<bool> { true, true, true, true };
+        static List<bool> itemOwndList = new List<bool> { true, true, true, true, true };
 
         //장착 표시
-        static List<bool> itemEquippedList = new List<bool> { false, false, false, false };
+        static List<bool> itemEquippedList = new List<bool> { false, false, false, false, false };
 
         static void Main(string[] args)
         {
@@ -270,19 +272,56 @@ namespace trpg
 
         }
 
-        //마을 순찰하기 작업중
+        //마을 순찰하기
         static void PatrolVillage()
         {
             if (player.Stamina < 5)
             {
                 Console.WriteLine("\n스태미너가 부족합니다!");
+                Console.ReadLine();
                 return;
             }
-            player.Stamina -= 5;
-            Random rand = new Random();
 
-            Console.Clear();
-            Console.WriteLine("\n마을을 순찰 중입니다...");
+            player.Stamina -= 5;
+            int roll = rand.Next(1, 101);
+
+            if (roll <= 10)
+            {
+                Console.WriteLine("\n마을 아이들이 모여있다. 간식을 사줘볼까?");
+                if (player.Gold >= 500)
+                {
+                    player.Gold -= 500;
+                    Console.WriteLine("500 G를 사용했다.");
+                }
+                else
+                {
+                    Console.WriteLine("골드가 부족해 간식을 사주지 못했다.");
+                }
+            }
+            else if (roll <= 10)
+            {
+                Console.WriteLine("\n촌장님을 만나서 심부름을 했다.");
+                player.Gold += 2000;
+                Console.WriteLine("2000 G를 획득했다!");
+            }
+            else if (roll <= 20)
+            {
+                Console.WriteLine("길 잃은 사람을 안내해주었다.");
+                player.Gold += 1000;
+                Console.WriteLine("1000 G를 획득했다.");
+            }
+            else if (roll <= 30)
+            {
+                Console.WriteLine("마을 주민과 인사를 나눴다. 선물을 받았다.");
+                player.Gold += 500;
+                Console.WriteLine("500 G를 획득했다!");
+            }
+            else if (roll <= 30)
+            {
+                Console.WriteLine("아무 일도 일어나지 않았다.");
+            }
+
+            Console.WriteLine($"\n현재 골드 : {player.Gold} G | 스태미나 : {player.Stamina}");
             Console.ReadLine();
         }
     }

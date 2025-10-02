@@ -1,37 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ghtjr\\source\\repos\\trpg\\",
+  "WorkspaceRootPath": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class7.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class6.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\source\\repos\\trpg\\trpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|c:\\users\\ghtjr\\documents\\github\\trpg\\trpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB2660F9-2C45-49FC-B286-802CD11A4726}|trpg\\trpg.csproj|solutionrelative:trpg\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -48,11 +48,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Class7.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class7.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class7.cs",
               "RelativeDocumentMoniker": "trpg\\Class7.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class7.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class7.cs",
               "RelativeToolTip": "trpg\\Class7.cs",
-              "ViewState": "AgIAANIAAAAAAAAAAAAiwCMBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAswBMBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-30T10:08:37.077Z",
               "EditorCaption": ""
@@ -61,9 +61,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Class6.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class6.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class6.cs",
               "RelativeDocumentMoniker": "trpg\\Class6.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class6.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class6.cs",
               "RelativeToolTip": "trpg\\Class6.cs",
               "ViewState": "AgIAAIUAAAAAAAAAAAAqwJ8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -73,9 +73,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Class5.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class5.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class5.cs",
               "RelativeDocumentMoniker": "trpg\\Class5.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class5.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class5.cs",
               "RelativeToolTip": "trpg\\Class5.cs",
               "ViewState": "AgIAAGoAAAAAAAAAAAAqwIQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -85,9 +85,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Class4.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class4.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class4.cs",
               "RelativeDocumentMoniker": "trpg\\Class4.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class4.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class4.cs",
               "RelativeToolTip": "trpg\\Class4.cs",
               "ViewState": "AgIAAHEAAAAAAAAAAAAqwIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -97,9 +97,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Class3.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class3.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class3.cs",
               "RelativeDocumentMoniker": "trpg\\Class3.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class3.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class3.cs",
               "RelativeToolTip": "trpg\\Class3.cs",
               "ViewState": "AgIAAFcBAAAAAAAAAAAqwHEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -109,9 +109,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Class2.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class2.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class2.cs",
               "RelativeDocumentMoniker": "trpg\\Class2.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class2.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class2.cs",
               "RelativeToolTip": "trpg\\Class2.cs",
               "ViewState": "AgIAAOUAAAAAAAAAAAAqwP8AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -121,9 +121,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class1.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class1.cs",
               "RelativeDocumentMoniker": "trpg\\Class1.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Class1.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Class1.cs",
               "RelativeToolTip": "trpg\\Class1.cs",
               "ViewState": "AgIAAEoBAAAAAAAAAAAAAL0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -133,9 +133,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Program.cs",
               "RelativeDocumentMoniker": "trpg\\Program.cs",
-              "ToolTip": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\Program.cs",
+              "ToolTip": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\Program.cs",
               "RelativeToolTip": "trpg\\Program.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAACMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

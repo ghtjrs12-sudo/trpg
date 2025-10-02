@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\trpg.csproj",
+      "projectUniqueName": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\trpg.csproj",
       "projectName": "trpg",
-      "projectPath": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\trpg.csproj",
+      "projectPath": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\trpg.csproj",
       "packagesPath": "C:\\Users\\ghtjr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ghtjr\\source\\repos\\trpg\\trpg\\obj\\",
+      "outputPath": "C:\\Users\\ghtjr\\Documents\\GitHub\\trpg\\trpg\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
