@@ -66,7 +66,7 @@ namespace trpg
 
         static void Main(string[] args)
         {
-            player = new Character("kont", "마법사", 10, 20, 5, 100, 500, 0, 20);
+            player = new Character("kont", "마법사", 10, 20, 5, 100, 500, 0, 30);
 
             while (true)
             {
@@ -89,6 +89,10 @@ namespace trpg
                 {
                     PatrolVillage();
                 }
+                else if (input == "5")
+                {
+                    Training();
+                }
                 else
                 {
                     Console.WriteLine("\n잘못된 입력입니다. 다시 입력해주세요.");
@@ -110,6 +114,7 @@ namespace trpg
             Console.WriteLine("2. 인벤토리");
             Console.WriteLine("3. 랜덤모험");
             Console.WriteLine("4. 마을 순찰하기");
+            Console.WriteLine("5. 훈련하기");
             Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
         }
 
@@ -298,30 +303,65 @@ namespace trpg
                     Console.WriteLine("골드가 부족해 간식을 사주지 못했다.");
                 }
             }
-            else if (roll <= 10)
+            else if (roll <= 20)
             {
                 Console.WriteLine("\n촌장님을 만나서 심부름을 했다.");
                 player.Gold += 2000;
                 Console.WriteLine("2000 G를 획득했다!");
             }
-            else if (roll <= 20)
+            else if (roll <= 40)
             {
                 Console.WriteLine("길 잃은 사람을 안내해주었다.");
                 player.Gold += 1000;
                 Console.WriteLine("1000 G를 획득했다.");
             }
-            else if (roll <= 30)
+            else if (roll <= 70)
             {
                 Console.WriteLine("마을 주민과 인사를 나눴다. 선물을 받았다.");
                 player.Gold += 500;
                 Console.WriteLine("500 G를 획득했다!");
             }
-            else if (roll <= 30)
+            else
             {
                 Console.WriteLine("아무 일도 일어나지 않았다.");
             }
 
             Console.WriteLine($"\n현재 골드 : {player.Gold} G | 스태미나 : {player.Stamina}");
+            Console.ReadLine();
+        }
+
+        static void Training()
+        {
+            if (player.Stamina < 15)
+            {
+                Console.WriteLine("\n스태미나가 부족합니다!");
+                Console.ReadLine();
+                return;
+            }
+
+            player.Stamina -= 15;
+            int roll = rand.Next(1, 101);
+
+            if (roll <= 15)
+            {
+                Console.WriteLine("훈련이 잘 되었습니다!");
+                player.Experience += 60;
+                Console.WriteLine("획득경험치 60");
+            }
+            else if (roll <= 75)
+            {
+                Console.WriteLine("오늘하루 열심히 훈련했습니다.");
+                player.Experience += 40;
+                Console.WriteLine("획득경험치 40");
+            }
+            else if (roll <= 100)
+            {
+                Console.WriteLine("하기 싫다... 훈련이...");
+                player.Experience += 30;
+                Console.WriteLine("획득경험치 30");
+            }
+
+            Console.WriteLine($"\n현재 경험치 {player.Experience}exp");
             Console.ReadLine();
         }
     }
