@@ -259,10 +259,9 @@ namespace trpg
             }
 
             player.Stamina -= 10;
-            Random rand = new Random();
-            int result = rand.Next(0, 2);
+            int roll = rand.Next(1, 101);
 
-            if (result == 0)
+            if (roll <= 50)
             {
                 Console.WriteLine("\n몬스터 조우! 500 골드 획득!");
                 player.Gold += 500;
