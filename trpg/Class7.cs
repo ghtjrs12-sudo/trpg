@@ -54,8 +54,8 @@ namespace trpg
             "금방이라도 찢어질 것 같다.",
             "흔하게 볼 수 있는 지팡이다.",
             "지팡이보다 가볍다.",
-            "운영자의 검이다",
-            "운영자의 옷이다"
+            "운영자의 검이다.",
+            "운영자의 옷이다."
         };
 
         //보유
@@ -180,7 +180,12 @@ namespace trpg
                 {
                     string typeText = (itemTypesList[i] == 1) ? "방어력" : "공격력";
                     string eTxt = itemEquippedList[i] ? "[E]" : " ";
-                    Console.WriteLine($"{eTxt}{i + 1}. {itemNamesList[i]} | {typeText} +{itemStatsList[i]} | {itemDescriptionsList[i]}");
+
+                    string name = itemNamesList[i].PadRight(10);
+                    string type = typeText.PadRight(10);
+                    string desc = itemDescriptionsList[i].PadRight(30);
+
+                    Console.WriteLine($"{eTxt}{i + 1}. {name} | {type} +{itemStatsList[i],3} | {desc}");
                 }
 
                 Console.WriteLine("\n1.장착 관리");
@@ -212,6 +217,7 @@ namespace trpg
                 Console.Clear();
                 Console.WriteLine("인벤토리 - 장착 관리");
                 Console.WriteLine("보유 중인 아이템을 관리할 수 있습니다.");
+                Console.WriteLine("[아이템 목록]");
 
                 for (int i = 0; i < itemNamesList.Count; i++)
                 {
@@ -235,10 +241,35 @@ namespace trpg
                 {
                     int index = choice - 1;
 
-                    if (itemOwndList[index])
+                    //디버깅으로 인한 주석처리 
+                    //if (itemOwndList[index])
+                    //{
+                    //    Console.WriteLine("\n아직 소유하지 않은 아이템입니다.");
+                    //    Console.ReadLine();
+                    //    continue;
+                    //}
+
+                    int selectedType = itemTypesList[index];
+
+                    if (itemEquippedList[index])
                     {
-                        itemEquippedList[index] = !itemEquippedList[index];
+                        itemEquippedList[index] = false;
+                        Console.WriteLine($"\n{itemNamesList[index]} 장착을 해제했습니다.");
                     }
+                    else
+                    {
+                        for(int i = 0; i < itemEquippedList.Count; i++)
+                        {
+                            if (itemEquippedList[i] && itemTypesList[i] == selectedType)
+                            {
+                                itemEquippedList[i] = false;
+                            }
+                        }
+
+                        itemEquippedList[index] = true;
+                        Console.WriteLine($"\n{itemNamesList[index]}을(를) 장착했습니다!");
+                    }
+                    Console.ReadLine();
 
                 }
                 else
