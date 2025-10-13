@@ -5,6 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace trpg
 {
@@ -34,6 +35,7 @@ namespace trpg
 
         }
     }
+   
     internal class Class7
     {
         static Character player;
@@ -66,7 +68,7 @@ namespace trpg
 
         static void Main(string[] args)
         {
-            player = new Character("kont", "마법사", 10, 20, 5, 100, 500, 0, 30);
+            player = new Character("kont", "마법사", 10, 20, 5, 100, 10000, 0, 30);//디버깅을 위한 골드 증가
 
             while (true)
             {
@@ -93,6 +95,10 @@ namespace trpg
                 {
                     Training();
                 }
+                else if (input == "6")
+                {
+                    Store();
+                }
                 else
                 {
                     Console.WriteLine("\n잘못된 입력입니다. 다시 입력해주세요.");
@@ -115,6 +121,7 @@ namespace trpg
             Console.WriteLine("3. 랜덤모험");
             Console.WriteLine("4. 마을 순찰하기");
             Console.WriteLine("5. 훈련하기");
+            Console.WriteLine("6. 상점");
             Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
         }
 
@@ -188,18 +195,46 @@ namespace trpg
                     Console.WriteLine($"{eTxt}{i + 1}. {name} | {type} +{itemStatsList[i],3} | {desc}");
                 }
 
-                Console.WriteLine("\n1.장착 관리");
+                Console.WriteLine("\n1.이름");
+                Console.WriteLine("2.장착순");
+                Console.WriteLine("3.공격력");
+                Console.WriteLine("4.방어력");
+                Console.WriteLine("5.장착 관리");
                 Console.WriteLine("0.나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
                 string input = Console.ReadLine();
 
-                if (input == "1")
-                {
-                    ShowEquipManage();
-                }
-                else if (input == "0")
+                if (input == "0")
                 {
                     break;
+                }
+                else if (input == "1")
+                {
+                    SortInventory("이름");
+                    Console.WriteLine("\n이름 길이 기준으로 정렬했습니다. (긴 이름 → 짧은 이름)");
+                    Console.ReadLine();
+                }
+                else if (input == "2")
+                {
+                    SortInventory("장착");
+                    Console.WriteLine("\n장착된 아이템이 위로 오도록 정렬했습니다.");
+                    Console.ReadLine();
+                }
+                else if (input == "3")
+                {
+                    SortInventory("공격력");
+                    Console.WriteLine("\n공격력이 높은 순으로 정렬했습니다.");
+                    Console.ReadLine();
+                }
+                else if (input == "4")
+                {
+                    SortInventory("이름");
+                    Console.WriteLine("\n방어력이 높은 순으로 정렬했습니다.");
+                    Console.ReadLine();
+                }
+                else if (input == "5")
+                {
+                    ShowEquipManage();
                 }
                 else
                 {
@@ -207,6 +242,67 @@ namespace trpg
                     Console.ReadLine();
                 }
             }
+        }
+        //인벤토리 정렬
+        static void SortInventory(string mode)
+        {
+            IEnumerable<int> order = Enumerable.Empty<int>();
+
+            switch (mode)
+            {
+                case "이름":
+                    order = Enumerable.Range(0, itemNamesList.Count)
+                                      .OrderByDescending(i => itemNamesList[i].Length);
+                    break;
+
+                case "장착":
+                    order = Enumerable.Range(0, itemNamesList.Count)
+                                      .OrderByDescending(i => itemEquippedList[i]);
+                    break;
+
+                case "공격력":
+                    order = Enumerable.Range(0, itemNamesList.Count)
+                                      .Where(i => itemTypesList[i] != 1)
+                                      .OrderByDescending(i => itemStatsList[i])
+                                      .Concat(Enumerable.Range(0, itemNamesList.Count)
+                                                        .Where(i => itemTypesList[i] == 1));
+                    break;
+
+                case "방어력":
+                    order = Enumerable.Range(0, itemNamesList.Count)
+                                      .Where(i => itemTypesList[i] == 1)
+                                      .OrderByDescending(i => itemStatsList[i])
+                                      .Concat(Enumerable.Range(0, itemNamesList.Count)
+                                                        .Where(i => itemTypesList[i] != 1));
+                    break;
+            }
+            ApplySortOrder(order.ToList());
+        }
+        static void ApplySortOrder(List<int> order)
+        {
+            var newNames = new List<string>();
+            var newTypes = new List<int>();
+            var newStats = new List<int>();
+            var newDescs = new List<string>();
+            var newOwns = new List<bool>();
+            var newEquips = new List<bool>();
+
+            foreach (int i in order)
+            {
+                newNames.Add(itemNamesList[i]);
+                newTypes.Add(itemTypesList[i]);
+                newStats.Add(itemStatsList[i]);
+                newDescs.Add(itemDescriptionsList[i]);
+                newOwns.Add(itemOwndList[i]);
+                newEquips.Add(itemEquippedList[i]);
+            }
+
+            itemNamesList = newNames;
+            itemTypesList = newTypes;
+            itemStatsList = newStats;
+            itemDescriptionsList = newDescs;
+            itemOwndList = newOwns;
+            itemEquippedList = newEquips;
         }
 
         //장착 관리
@@ -360,6 +456,7 @@ namespace trpg
             Console.ReadLine();
         }
 
+        //훈련하기
         static void Training()
         {
             if (player.Stamina < 15)
@@ -393,6 +490,132 @@ namespace trpg
 
             Console.WriteLine($"\n현재 경험치 {player.Experience}exp");
             Console.ReadLine();
+        }
+
+        //상점
+        static void Store()
+        {
+            List<string> shopNames = new List<string>
+    {
+        "수련자 갑옷", "무쇠갑옷", "스파르타의 갑옷",
+        "낡은 검", "청동 도끼", "스파르타의 창"
+    };
+
+            List<int> shopTypes = new List<int> { 1, 1, 1, 0, 0, 0 };
+            List<int> shopStats = new List<int> { 5, 9, 15, 2, 5, 7 };
+            List<string> shopDescriptions = new List<string>
+    {
+        "수련에 도움을 주는 갑옷입니다.",
+        "무쇠로 만들어져 튼튼한 갑옷입니다.",
+        "스파르타의 전사들이 사용했다는 전설의 갑옷입니다.",
+        "쉽게 볼 수 있는 낡은 검 입니다.",
+        "어디선가 사용됐던거 같은 도끼입니다.",
+        "스파르타의 전사들이 사용했다는 전설의 창입니다."
+    };
+            List<int> shopPrices = new List<int> { 1000, 1500, 3500, 600, 1500, 2500 };
+            List<bool> shopPurchased = new List<bool> { false, false, false, false, false, false };
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("상점");
+                Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.\n");
+                Console.WriteLine($"[보유 골드] {player.Gold} G\n");
+                Console.WriteLine("[아이템 목록]");
+
+                Console.WriteLine("──────────────────────────────────────────────────────────────");
+
+                for (int i = 0; i < shopNames.Count; i++)
+                {
+                    string type = (shopTypes[i] == 1) ? "방어력" : "공격력";
+                    string priceText = shopPurchased[i] ? "구매완료" : $"{shopPrices[i]} G";
+
+                    string name = shopNames[i].PadRight(10);
+                    string stat = $"{type} +{shopStats[i]}".PadRight(10);
+                    string desc = shopDescriptions[i].PadRight(40);
+                    string price = priceText.PadLeft(8);
+
+                    Console.WriteLine($"- {i + 1}. {name} | {stat} | {desc} | {price}");
+                }
+
+                Console.WriteLine("──────────────────────────────────────────────────────────────");
+                Console.WriteLine("\n1. 아이템 구매");
+                Console.WriteLine("0. 나가기");
+                Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
+                string input = Console.ReadLine();
+
+                if (input == "0")
+                {
+                    break;
+                }
+                else if (input == "1")
+                {
+                    while (true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("상점 - 아이템 구매");
+                        Console.WriteLine("원하시는 아이템 번호를 입력해주세요. (0 입력 시 나가기)\n");
+
+                        for (int i = 0; i < shopNames.Count; i++)
+                        {
+                            string type = (shopTypes[i] == 1) ? "방어력" : "공격력";
+                            string priceText = shopPurchased[i] ? "구매완료" : $"{shopPrices[i]} G";
+                            Console.WriteLine($"{i + 1}. {shopNames[i]} | {type} +{shopStats[i]} | {shopDescriptions[i]} | {priceText}");
+                        }
+
+                        Console.Write("\n>> ");
+                        string buyInput = Console.ReadLine();
+
+                        if (buyInput == "0")
+                            break;
+
+                        if (int.TryParse(buyInput, out int choice))
+                        {
+                            if (choice < 1 || choice > shopNames.Count)
+                            {
+                                Console.WriteLine("\n잘못된 입력입니다.");
+                                Console.ReadLine();
+                                continue;
+                            }
+
+                            int index = choice - 1;
+
+                            if (shopPurchased[index])
+                            {
+                                Console.WriteLine("\n이미 구매한 아이템입니다.");
+                            }
+                            else if (player.Gold >= shopPrices[index])
+                            {
+                                player.Gold -= shopPrices[index];
+                                shopPurchased[index] = true;
+
+                                itemNamesList.Add(shopNames[index]);
+                                itemTypesList.Add(shopTypes[index]);
+                                itemStatsList.Add(shopStats[index]);
+                                itemDescriptionsList.Add(shopDescriptions[index]);
+                                itemOwndList.Add(true);
+                                itemEquippedList.Add(false);
+
+                                Console.WriteLine($"\n{shopNames[index]} 구매를 완료했습니다!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("\n골드가 부족합니다!");
+                            }
+
+                            Console.WriteLine($"\n현재 골드: {player.Gold} G");
+                            Console.WriteLine("계속 구매하려면 Enter, 나가려면 0을 입력하세요.");
+                            string next = Console.ReadLine();
+                            if (next == "0") break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n잘못된 입력입니다.");
+                            Console.ReadLine();
+                        }
+                    }
+                }
+            }
         }
     }
 }
