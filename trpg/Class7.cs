@@ -35,7 +35,7 @@ namespace trpg
 
         }
     }
-   
+
     internal class Class7
     {
         static Character player;
@@ -195,12 +195,12 @@ namespace trpg
                     Console.WriteLine($"{eTxt}{i + 1}. {name} | {type} +{itemStatsList[i],3} | {desc}");
                 }
 
-                Console.WriteLine("\n1.이름");
-                Console.WriteLine("2.장착순");
-                Console.WriteLine("3.공격력");
-                Console.WriteLine("4.방어력");
-                Console.WriteLine("5.장착 관리");
-                Console.WriteLine("0.나가기");
+                Console.WriteLine("\n1. 이름");
+                Console.WriteLine("2. 장착순");
+                Console.WriteLine("3. 공격력");
+                Console.WriteLine("4. 방어력");
+                Console.WriteLine("5. 장착 관리");
+                Console.WriteLine("0. 나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
                 string input = Console.ReadLine();
 
@@ -228,7 +228,7 @@ namespace trpg
                 }
                 else if (input == "4")
                 {
-                    SortInventory("이름");
+                    SortInventory("방어력");
                     Console.WriteLine("\n방어력이 높은 순으로 정렬했습니다.");
                     Console.ReadLine();
                 }
@@ -354,7 +354,7 @@ namespace trpg
                     }
                     else
                     {
-                        for(int i = 0; i < itemEquippedList.Count; i++)
+                        for (int i = 0; i < itemEquippedList.Count; i++)
                         {
                             if (itemEquippedList[i] && itemTypesList[i] == selectedType)
                             {
@@ -540,6 +540,7 @@ namespace trpg
 
                 Console.WriteLine("──────────────────────────────────────────────────────────────");
                 Console.WriteLine("\n1. 아이템 구매");
+                Console.WriteLine("2. 아이템 판매");
                 Console.WriteLine("0. 나가기");
                 Console.Write("\n원하시는 행동을 입력해주세요.\n>> ");
                 string input = Console.ReadLine();
@@ -608,13 +609,94 @@ namespace trpg
                             string next = Console.ReadLine();
                             if (next == "0") break;
                         }
-                        else
-                        {
-                            Console.WriteLine("\n잘못된 입력입니다.");
-                            Console.ReadLine();
-                        }
                     }
                 }
+                else if (input == "2")
+                {
+                    SellItems(shopNames, shopPrices);
+                }
+                else
+                {
+                    Console.WriteLine("\n잘못된 입력입니다.");
+                    Console.ReadLine();
+                }
+            }
+        }
+        //판매
+        static void SellItems(List<string> shopNames, List<int> shopPrices)
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("상점 - 아이템 판매");
+                Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.\n");
+                Console.WriteLine($"[보유 골드] {player.Gold} G\n");
+
+                List<int> sellableIndexes = new List<int>();
+
+                for (int i = 0; i < itemNamesList.Count; i++)
+                {
+                    string name = itemNamesList[i];
+                    int shopIndex = shopNames.IndexOf(name);
+
+                    if (shopIndex != -1)
+                    {
+                        int sellPrice = (int)(shopPrices[shopIndex] * 0.85f);
+                        sellableIndexes.Add(i);
+
+                        string type = (itemTypesList[i] == 1) ? "방어력" : "공격력";
+                        Console.WriteLine($"{sellableIndexes.Count}. {itemNamesList[i]} | {type} +{itemStatsList[i]} | {itemDescriptionsList[i]} | {sellPrice} G");
+                    }
+                }
+
+                if (sellableIndexes.Count == 0)
+                {
+                    Console.WriteLine("\n판매 가능한 아이템이 없습니다.");
+                    Console.WriteLine("\n0. 나가기");
+                    Console.Write("\n>> ");
+                    string exit = Console.ReadLine();
+                    if (exit == "0") return;
+                    continue;
+                }
+
+                Console.WriteLine("\n0. 나가기");
+                Console.Write("\n판매할 아이템 번호를 입력해주세요.\n>> ");
+                string input = Console.ReadLine();
+
+                if (input == "0")
+                    break;
+
+                if (int.TryParse(input, out int choice) && choice >= 1 && choice <= sellableIndexes.Count)
+                {
+                    int invIndex = sellableIndexes[choice - 1];
+                    string itemName = itemNamesList[invIndex];
+                    int shopIndex = shopNames.IndexOf(itemName);
+                    int sellPrice = (int)(shopPrices[shopIndex] * 0.85f);
+
+                    if (itemEquippedList[invIndex])
+                    {
+                        itemEquippedList[invIndex] = false;
+                        Console.WriteLine($"\n{itemName} 장착을 해제했습니다.");
+                    }
+
+                    player.Gold += sellPrice;
+                    Console.WriteLine($"\n{itemName}을(를) {sellPrice} G에 판매했습니다.");
+
+                    itemNamesList.RemoveAt(invIndex);
+                    itemTypesList.RemoveAt(invIndex);
+                    itemStatsList.RemoveAt(invIndex);
+                    itemDescriptionsList.RemoveAt(invIndex);
+                    itemEquippedList.RemoveAt(invIndex);
+                    itemOwndList.RemoveAt(invIndex);
+
+                    Console.WriteLine($"\n현재 골드: {player.Gold} G");
+                }
+                else
+                {
+                    Console.WriteLine("\n잘못된 입력입니다.");
+                }
+
+                Console.WriteLine();
             }
         }
     }
